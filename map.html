@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Navigation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        header img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        .container {
+            padding: 20px;
+        }
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .map {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .map img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="image.png" alt="College Logo">
+        <h1>Campus Navigation System</h1>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for locations (e.g., canteen, library)">
+            <button onclick="showDirection()">Search</button>
+        </div>
+        <div class="map" id="mapContainer">
+            <p>Scan the QR code to view the map or search for a location.</p>
+            <img src="your-campus-map-image.jpg" alt="Campus Map">
+        </div>
+    </div>
+    <script>
+        function showDirection() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const mapContainer = document.getElementById('mapContainer');
+            const locations = {
+                "canteen": "Directions to Canteen: ...",
+                "library": "Directions to Library: ...",
+                "boys hostel": "Directions to Boys Hostel: ...",
+                "girls hostel": "Directions to Girls Hostel: ...",
+                "playground": "Directions to Playground: ...",
+                "cse branch": "CSE: HOD Room, Labs, Seminar Hall",
+                "ece branch": "ECE: HOD Room, Labs, Seminar Hall"
+                // Add other locations here
+            };
+
+            if (locations[searchInput]) {
+                mapContainer.innerHTML = `<p>${locations[searchInput]}</p>`;
+            } else {
+                mapContainer.innerHTML = `<p>Location not found. Please try again.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
